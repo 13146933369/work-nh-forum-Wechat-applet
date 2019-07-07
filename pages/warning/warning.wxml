@@ -1,0 +1,4 @@
+<!--pages/warning/warning.wxml-->
+<view style='width:100%;text-align:center;margin-top:100px;font-weight:700;color:red'>
+  <text>对不起！商家不存在!</text>
+</view>

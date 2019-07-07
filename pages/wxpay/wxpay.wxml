@@ -1,0 +1,18 @@
+<!--pages/wxpay/wxpay.wxml-->
+<view wx:if="{{state==0}}" style='text-align:center;margin-top:50px'>
+  <text style='color:	#32CD32;'>支付中请稍后</text>
+</view>
+<view wx:if="{{state==1}}"  style='text-align:center;margin-top:50px'>
+  <text style='color:	#32CD32; font-weight:bold'>支付成功</text>
+  <button bindtap="go" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" 
+  disabled="{{disabled}}" style='margin-top:200px'>返回首页</button>
+</view>
+<view wx:if="{{state==2}}"  style='text-align:center'>
+  <text style='color:	#FF4500; font-weight:bold'>支付失败</text>
+  <button bindtap="go"  type="warn"
+  size="{{warnSize}}"
+  loading="{{loading}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  >返回首页</button>
+</view>

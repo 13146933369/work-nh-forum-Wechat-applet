@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
+  </view>
+  <button wx:if='{{hasPhone}}' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取用户手机号</button> 
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
+  <web-view wx:if="{{hasWeb}}" src="{{webUrl}}"></web-view>
+</view> -->
+
+<view class="container">
+    <dialog id='dialog' 
+      title='服务商' 
+      content='小程序需要获取您的基本信息' 
+      cancelText='取消' 
+      confirm='谢谢'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+      <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="background:#fff">确定</button>
+    </dialog>
+    
+     <dialog id='dialogPhone' 
+      title='服务商' 
+      content='小程序需要获取您的手机号' 
+      cancelText='取消' 
+      confirm='谢谢'
+      bind:cancelEvent="_cancelEventPhone"  
+      bind:confirmEvent="_confirmEventPhone">
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">确定</button>
+    </dialog>
+    <!-- <web-view wx:if="{{phoneInfo&&hasUserInfo&&hasWeb}}" src="{{webUrl}}"></web-view> -->
+    <!-- <web-view  wx:if="{{webUrl}}" src="{{webUrl}}"></web-view> -->
+    <!-- <web-view  src="https://nhtiny.mtadservice.com/wxsp/index.html#/?id=1&isSignin=false"></web-view> -->
+    <web-view wx:if="{{hasUserInfo&&phoneInfo}}" src="{{webUrl}}" bindmessage="getMessage"></web-view>
+</view>
+
+
+
